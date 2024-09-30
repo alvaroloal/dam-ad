@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "e8629489-0092-440e-9a8d-8f36ecb272b4",
+		"name": "Monumentos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38690077"
+	},
+	"item": [
+		{
+			"name": "obtenerTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/monumentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"monumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerUno",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
