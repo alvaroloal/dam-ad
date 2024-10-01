@@ -1,4 +1,5 @@
-package com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.model;
+package com.salesianostriana.dam.lorentealmanalvaromonumentos.model;
+
 
 
 import jakarta.persistence.Column;
@@ -44,3 +45,4 @@ public class Monumento {
     @Column(nullable = false)
     private String fotoUrl;
 }
+

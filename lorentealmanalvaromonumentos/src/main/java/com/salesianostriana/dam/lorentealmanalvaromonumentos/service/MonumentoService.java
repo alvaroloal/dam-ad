@@ -1,7 +1,9 @@
-package com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.service;
+package com.salesianostriana.dam.lorentealmanalvaromonumentos.service;
 
-import com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.model.Monumento;
-import com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.repository.MonumentoRepository;
+
+import com.salesianostriana.dam.lorentealmanalvaromonumentos.model.Monumento;
+import com.salesianostriana.dam.lorentealmanalvaromonumentos.repository.MonumentoRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,4 +43,5 @@ public class MonumentoService {
         monumentoRepository.deleteById(id);
     }
 }
+
 

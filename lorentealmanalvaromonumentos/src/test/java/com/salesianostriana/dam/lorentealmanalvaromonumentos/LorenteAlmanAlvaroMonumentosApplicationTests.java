@@ -1,10 +1,10 @@
-package com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos;
+package com.salesianostriana.dam.lorentealmanalvaromonumentos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AlvaroLorenteAlmanMonumentosApplicationTests {
+class LorenteAlmanAlvaroMonumentosApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,7 +1,8 @@
-package com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.controller;
-import com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.service.MonumentoService;
+package com.salesianostriana.dam.lorentealmanalvaromonumentos.controller;
+import com.salesianostriana.dam.lorentealmanalvaromonumentos.service.MonumentoService;
+import com.salesianostriana.dam.lorentealmanalvaromonumentos.model.Monumento;
 
-import com.salesianostriana.dam.monumentos.AlvaroLorenteAlman_Monumentos.model.Monumento;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -65,4 +66,5 @@ public class MonumentoController {
         }
     }
 }
+
 
