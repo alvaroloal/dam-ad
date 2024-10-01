@@ -17,7 +17,7 @@ public class MonumentoService {
 
     // obtener todos los monumetnos
     public List<Monumento> getAllMonumentos() {
-        return monumentoRepository.findAll();
+        return this.monumentoRepository.findAll();
     }
 
     // obtener x id

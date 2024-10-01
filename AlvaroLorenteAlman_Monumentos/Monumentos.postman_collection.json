@@ -12,11 +12,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/monumentos",
+					"raw": "localhost:9000/api/monumentos",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9000",
 					"path": [
 						"api",
 						"monumentos"
@@ -29,7 +29,98 @@
 			"name": "obtenerUno",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/monumentos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"monumentos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrarUno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/monumentos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"monumentos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearUno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/monumentos",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"monumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarUno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/monumentos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"monumentos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarUno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/monumentos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"monumentos",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}

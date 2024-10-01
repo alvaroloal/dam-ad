@@ -14,11 +14,15 @@ import java.util.Optional;
 @RequestMapping("/api/monumentos")
 public class MonumentoController {
 
-    @Autowired
+    @Autowired // creo una instancia del servicio creado
     private MonumentoService monumentoService;
 
     // obtener todos los monumentos
     @GetMapping
+
+
+
+
     public List<Monumento> getAllMonumentos() {
         return monumentoService.getAllMonumentos();
     }
