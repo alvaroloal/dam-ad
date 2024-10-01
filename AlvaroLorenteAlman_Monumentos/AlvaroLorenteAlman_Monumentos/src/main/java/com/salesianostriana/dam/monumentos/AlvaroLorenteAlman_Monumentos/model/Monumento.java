@@ -38,7 +38,7 @@ public class Monumento {
     @Column(nullable = false)
     private String nombreMonumento;
 
-    @Column(nullable = false, length=100)
+    @Column(nullable = false, length=500)
     private String descripcion;
 
     @Column(nullable = false)

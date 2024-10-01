@@ -19,10 +19,6 @@ public class MonumentoController {
 
     // obtener todos los monumentos
     @GetMapping
-
-
-
-
     public List<Monumento> getAllMonumentos() {
         return monumentoService.getAllMonumentos();
     }

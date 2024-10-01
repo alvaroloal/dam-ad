@@ -8,9 +8,21 @@
 	"item": [
 		{
 			"name": "obtenerTodos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:9000/api/monumentos",
 					"host": [
@@ -31,7 +43,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/api/monumentos/1",
+					"raw": "localhost:9000/api/monumentos/5",
 					"host": [
 						"localhost"
 					],
@@ -39,7 +51,7 @@
 					"path": [
 						"api",
 						"monumentos",
-						"1"
+						"5"
 					]
 				}
 			},
@@ -70,6 +82,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:9000/api/monumentos",
 					"host": [
@@ -90,7 +111,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/api/monumentos/1",
+					"raw": "localhost:9000/api/monumentos/3",
 					"host": [
 						"localhost"
 					],
@@ -98,27 +119,7 @@
 					"path": [
 						"api",
 						"monumentos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eliminarUno",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:9000/api/monumentos/1",
-					"host": [
-						"localhost"
-					],
-					"port": "9000",
-					"path": [
-						"api",
-						"monumentos",
-						"1"
+						"3"
 					]
 				}
 			},
