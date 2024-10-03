@@ -43,7 +43,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/api/monumentos/5",
+					"raw": "localhost:9000/api/monumentos/2",
 					"host": [
 						"localhost"
 					],
@@ -51,7 +51,7 @@
 					"path": [
 						"api",
 						"monumentos",
-						"5"
+						"2"
 					]
 				}
 			},
@@ -62,6 +62,15 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:9000/api/monumentos/1",
 					"host": [
@@ -112,7 +121,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"id\": 1,\r\n        \"codPais\": \"VE\",\r\n        \"nombrePais\": \"Venezuela\",\r\n        \"nombreCiudad\": \"Caracasº\",\r\n        \"latitud\": 20.2,\r\n        \"longitud\": 22.4,\r\n        \"nombreMonumento\": \"Torre del oro\",\r\n        \"descripcion\": \"Edificios civiles, palacios, las murallas de la antigua fortaleza y construcciones religiosas como la magnÃ­fica Catedral de San Basilio\",\r\n        \"fotoUrl\": \"https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG\"\r\n    }",
+					"raw": " {\r\n        \"codPais\": \"VE\",\r\n        \"nombrePais\": \"Venezuela\",\r\n        \"nombreCiudad\": \"Caracasº\",\r\n        \"latitud\": 20.2,\r\n        \"longitud\": 22.4,\r\n        \"nombreMonumento\": \"Torre del oro\",\r\n        \"descripcion\": \"Edificios civiles, palacios, las murallas de la antigua fortaleza y construcciones religiosas como la magnÃ­fica Catedral de San Basilio\",\r\n        \"fotoUrl\": \"https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"

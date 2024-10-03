@@ -1,3 +1,4 @@
+DROP SEQUENCE MONUMENTO_SEQ IF EXISTS;
 CREATE SEQUENCE MONUMENTO_SEQ START WITH 1 INCREMENT BY 1;
 
 INSERT INTO MONUMENTO (ID, COD_PAIS, NOMBRE_PAIS, NOMBRE_CIUDAD, LATITUD, LONGITUD, NOMBRE_MONUMENTO, DESCRIPCION, FOTO_URL) VALUES (NEXTVAL('MONUMENTO_SEQ'),'FR','Francia','París', 20.2, 22.4, 'Torre Eiffel','Torre principal en una de las ciudades emblemáticas de Francia','https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG');

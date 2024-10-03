@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Monumento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//cuando se crea un monumento el id se genera automatiamente
+    @GeneratedValue(strategy = GenerationType.AUTO)//cuando se crea un monumento el id se genera automatiamente
     private Long id;
     
     @Column(nullable = false, length = 2)//EL CODIGO TIENE DOS CARACTERES POR ESO SE FUERZA A QUE SEA 2
