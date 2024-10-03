@@ -55,8 +55,8 @@ public class RestauranteController {
 
     // agregar tag a un restaurante
     @PutMapping("/{id}/tag/add/{nuevo_tag}")
-    public ResponseEntity<Restaurante> agregarTag(@PathVariable Long id, @PathVariable("nuevo_tag") String nuevoTag) {
-        return restauranteServicio.agregarTag(id, nuevoTag)
+    public ResponseEntity<Restaurante> agregarTag(@PathVariable("id") Long restauranteId, @PathVariable("nuevo_tag") String nuevoTag) {
+        return restauranteServicio.agregarTag(restauranteId, nuevoTag)
                 .map(restaurante -> new ResponseEntity<>(restaurante, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

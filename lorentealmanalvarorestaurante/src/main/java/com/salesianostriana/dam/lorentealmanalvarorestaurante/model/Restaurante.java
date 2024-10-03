@@ -17,6 +17,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import org.apache.el.stream.Optional;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -28,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Restaurante {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
@@ -49,11 +51,14 @@ public class Restaurante {
     @Column(length = 1000)
     private String descripcion;
 
+    @Column(nullable = false)
     private String fotoUrl;
 
-    @ManyToMany(/*mappedBy = "restaurantes",*/fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "restaurante_tags", joinColumns =  @JoinColumn(name = "restaurante_id") ,
-        inverseJoinColumns =  @JoinColumn(name = "tag_id") )
+    //@ManyToMany(/*mappedBy = "restaurantes",*/fetch = FetchType.EAGER  /*cascade = {CascadeType.PERSIST,CascadeType.MERGE*/}
+    @ManyToMany(fetch = FetchType.LAZY  )
+    @JoinTable(name = "restaurante_tag",
+    joinColumns =  @JoinColumn(name = "restaurante_id", referencedColumnName = "id") ,
+    inverseJoinColumns =  @JoinColumn(name = "tag_id", referencedColumnName = "id") )
     @JsonIgnoreProperties("restaurantes")
     private List<Tag> tags;
 
@@ -62,12 +67,12 @@ public class Restaurante {
     // Métodos para manejar la relacion con tag // metodos helper
     public void addTag(Tag tag) {
         this.tags.add(tag);
-        tag.getRestaurantes().add(this);
+        //tag.getRestaurantes().add(this);
     }
 
     public void removeTag(Tag tag) {
         this.tags.remove(tag);
-        tag.getRestaurantes().remove(this);
+        //tag.getRestaurantes().remove(this);
     }
 
 

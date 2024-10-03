@@ -23,16 +23,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tag")
+@Table(name = "tags")
 public class Tag {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @Column(nullable = false)
     private String nombre;
 
-    @ManyToMany(/*cascade = {CascadeType.PERSIST, CascadeType.MERGE},*/ fetch = FetchType.EAGER, mappedBy = "tags")
+    @ManyToMany(/*cascade = {CascadeType.PERSIST, CascadeType.MERGE},*/ fetch = FetchType.LAZY, mappedBy = "tags")
     //@JoinTable(name= "restaurante_tags",joinColumns = @JoinColumn(name="tag_id"), inverseJoinColumns = @JoinColumn(name="restaurante_id") )
     @JsonIgnoreProperties("tags")
     private List <Restaurante> restaurantes;
