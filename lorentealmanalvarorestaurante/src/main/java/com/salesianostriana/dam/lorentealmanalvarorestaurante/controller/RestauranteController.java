@@ -69,11 +69,10 @@ public class RestauranteController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // Eliminar un bar o restaurante
+    // eliminar restaurante
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarRestaurante(@PathVariable Long id) {
-        boolean eliminado = restauranteServicio.eliminarRestaurante(id);
+        restauranteServicio.eliminarRestaurante(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-

@@ -1,7 +1,5 @@
 package com.salesianostriana.dam.lorentealmanalvarorestaurante.model;
 
-
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +7,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -51,10 +51,9 @@ public class Restaurante {
 
     private String fotoUrl;
 
-    @ManyToMany(mappedBy = "restaurantes",fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    // @JoinTable(name = "restaurante_tags",
-    //     joinColumns = { @JoinColumn(name = "restaurante_id") },
-    //     inverseJoinColumns = { @JoinColumn(name = "tag_id") })
+    @ManyToMany(/*mappedBy = "restaurantes",*/fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "restaurante_tags", joinColumns =  @JoinColumn(name = "restaurante_id") ,
+        inverseJoinColumns =  @JoinColumn(name = "tag_id") )
     @JsonIgnoreProperties("restaurantes")
     private List<Tag> tags;
 

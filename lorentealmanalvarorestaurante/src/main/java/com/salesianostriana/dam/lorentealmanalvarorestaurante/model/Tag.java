@@ -32,8 +32,8 @@ public class Tag {
     @Column(nullable = false)
     private String nombre;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @JoinTable(name= "restaurante_tags",joinColumns = @JoinColumn(name="tag_id"), inverseJoinColumns = @JoinColumn(name="restaurante_id") )
+    @ManyToMany(/*cascade = {CascadeType.PERSIST, CascadeType.MERGE},*/ fetch = FetchType.EAGER, mappedBy = "tags")
+    //@JoinTable(name= "restaurante_tags",joinColumns = @JoinColumn(name="tag_id"), inverseJoinColumns = @JoinColumn(name="restaurante_id") )
     @JsonIgnoreProperties("tags")
     private List <Restaurante> restaurantes;
 

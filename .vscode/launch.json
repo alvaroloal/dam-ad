@@ -9,6 +9,16 @@
             "projectName": "lorentealmanalvarorestaurante",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-LorenteAlmanAlvaroMonumentosApplication<lorentealmanalvaromonumentos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.salesianostriana.dam.lorentealmanalvaromonumentos.LorenteAlmanAlvaroMonumentosApplication",
+            "projectName": "lorentealmanalvaromonumentos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
