@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LorenteAlmanAlvaroRestauranteApplication",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.lorentealmanalvarorestaurante.LorenteAlmanAlvaroRestauranteApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-LorenteAlmanAlvaroRestauranteApplication<lorentealmanalvarorestaurante>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
