@@ -42,7 +42,7 @@ public class RestauranteService {
         nuevoRestaurante.setDescripcion(restaurante.getDescripcion());
         nuevoRestaurante.setFotoUrl(restaurante.getFotoUrl());
         nuevoRestaurante.setTags(restaurante.getTags());
-
+        
         return restauranteRepositorio.save(nuevoRestaurante);
     }
 

@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LorentealmanalvarorestaurantesV3Application",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.lorentealmanalvarorestaurantes_v3.LorentealmanalvarorestaurantesV3Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "LorenteAlmanAlvaroRestaurantesV2Application",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.lorentealmanalvarorestaurantes_v2.LorenteAlmanAlvaroRestaurantesV2Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "LorenteAlmanAlvaroRestauranteApplication",
             "request": "launch",
             "mainClass": "com.salesianostriana.dam.lorentealmanalvarorestaurante.LorenteAlmanAlvaroRestauranteApplication",
