@@ -22,12 +22,12 @@ public class Restaurante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String address;
-    private double latitude;
-    private double longitude;
-    private String description;
-    private String photoUrl;
+    private String nombre;
+    private String direccion;
+    private double latitud;
+    private double longitud;
+    private String descripcion;
+    private String fotoUrl;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(

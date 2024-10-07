@@ -1,1 +1,0 @@
--- insert into place (id, descripcion, direccion, localizacion, nombre, tags, url) values (NEXT_VAL('place_seq'), )

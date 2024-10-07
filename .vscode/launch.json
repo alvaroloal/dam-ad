@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.rest.Application",
+            "projectName": "02_Ejercicio_Evaluacion_01"
+        },
+        {
+            "type": "java",
             "name": "LorentealmanalvarorestaurantesV3Application",
             "request": "launch",
             "mainClass": "com.salesianostriana.dam.lorentealmanalvarorestaurantes_v3.LorentealmanalvarorestaurantesV3Application",

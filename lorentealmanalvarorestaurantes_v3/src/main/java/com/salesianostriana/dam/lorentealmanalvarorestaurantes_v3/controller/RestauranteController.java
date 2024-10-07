@@ -48,7 +48,7 @@ public class RestauranteController {
     @PutMapping("/{id}/tag/add/{newTag}")
     public ResponseEntity<Restaurante> addTag(@PathVariable Long id, @PathVariable String newTag) {
         Tag tag = new Tag();
-        tag.setName(newTag);
+        tag.setNombre(newTag);
         return ResponseEntity.ok(restauranteService.addTag(id, tag));
     }
 

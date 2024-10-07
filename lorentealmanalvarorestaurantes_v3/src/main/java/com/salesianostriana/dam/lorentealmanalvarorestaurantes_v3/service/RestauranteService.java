@@ -40,14 +40,14 @@ public class RestauranteService {
 
     //actualizar
     public Restaurante update(Long id, Restaurante restaurante) {
-        Restaurante existingRestaurante = restauranteRepository.findById(id).orElseThrow();
-        existingRestaurante.setName(restaurante.getName());
-        existingRestaurante.setAddress(restaurante.getAddress());
-        existingRestaurante.setLatitude(restaurante.getLatitude());
-        existingRestaurante.setLongitude(restaurante.getLongitude());
-        existingRestaurante.setDescription(restaurante.getDescription());
-        existingRestaurante.setPhotoUrl(restaurante.getPhotoUrl());
-        return restauranteRepository.save(existingRestaurante);
+        Restaurante existeRestaurante = restauranteRepository.findById(id).orElseThrow();
+        existeRestaurante.setNombre(restaurante.getNombre());
+        existeRestaurante.setDireccion(restaurante.getDireccion());
+        existeRestaurante.setLatitud(restaurante.getLatitud());
+        existeRestaurante.setLongitud(restaurante.getLongitud());
+        existeRestaurante.setDescripcion(restaurante.getDescripcion());
+        existeRestaurante.setFotoUrl(restaurante.getFotoUrl());
+        return restauranteRepository.save(existeRestaurante);
     }
     //agregar tag
     public Restaurante addTag(Long id, Tag newTag) {
@@ -59,7 +59,7 @@ public class RestauranteService {
     public Restaurante deleteTag(Long id, String tagName) {
         Restaurante restaurante = restauranteRepository.findById(id).orElseThrow();
         Tag tagToRemove = restaurante.getTags().stream()
-                .filter(tag -> tag.getName().equals(tagName))
+                .filter(tag -> tag.getNombre().equals(tagName))
                 .findFirst()
                 .orElseThrow();
         restaurante.getTags().remove(tagToRemove);
