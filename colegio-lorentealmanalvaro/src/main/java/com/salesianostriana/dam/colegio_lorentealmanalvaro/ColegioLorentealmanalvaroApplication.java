@@ -1,13 +1,13 @@
-package com.salesianostriana.dam.lorentealmanalvarocolegio;
+package com.salesianostriana.dam.colegio_lorentealmanalvaro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LorenteAlmanAlvaroColegioApplication {
+public class ColegioLorentealmanalvaroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LorenteAlmanAlvaroColegioApplication.class, args);
+		SpringApplication.run(ColegioLorentealmanalvaroApplication.class, args);
 	}
 
 }

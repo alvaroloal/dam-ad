@@ -1,10 +1,10 @@
-package com.salesianostriana.dam.lorentealmanalvarocolegio;
+package com.salesianostriana.dam.colegio_lorentealmanalvaro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LorenteAlmanAlvaroColegioApplicationTests {
+class ColegioLorentealmanalvaroApplicationTests {
 
 	@Test
 	void contextLoads() {
