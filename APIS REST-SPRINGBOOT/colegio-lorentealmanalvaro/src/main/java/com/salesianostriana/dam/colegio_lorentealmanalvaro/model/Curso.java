@@ -1,12 +1,19 @@
 package com.salesianostriana.dam.colegio_lorentealmanalvaro.model;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -30,9 +37,12 @@ public class Curso {
         this.tipo = tipo;
     }
 
-    // Método para agregar asignatura y mantener la relación bidireccional
     public void agregarAsignatura(Asignatura asignatura) {
         asignaturas.add(asignatura);
         asignatura.setCurso(this);
     }
 }
+
+
+
+

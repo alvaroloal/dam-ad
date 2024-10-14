@@ -1,21 +1,13 @@
 package com.salesianostriana.dam.colegio_lorentealmanalvaro.dto;
 
 import lombok.Data;
-import java.util.List;
-
 
 @Data
-public class CursoDTO {
+public class AsignaturaDTO {
     private Long id;
     private String nombre;
-    private String tipo;
-    private List<AsignaturaDTO> asignaturas;
+    private int numHoras;
+    private String contenidos;
+    private Long cursoId;
 }
 
-
-
-
-
-
-
- 

@@ -2,8 +2,13 @@ package com.salesianostriana.dam.colegio_lorentealmanalvaro.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +25,10 @@ public class Alumno {
     private String nombre;
     private String apellidos;
     private LocalDate fechaNac;
+    private String direccion;
+    private String telefono;
+    private String email;
+
 
     @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MatriculaNotas> matriculas = new ArrayList<>();
@@ -35,4 +44,3 @@ public class Alumno {
         matricula.setAlumno(this);
     }
 }
- 

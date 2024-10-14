@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LorenteAlmanAlvaroMonumentosApplication",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.lorentealmanalvaromonumentos.LorenteAlmanAlvaroMonumentosApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "ColegioLorentealmanalvaroApplication",
+            "request": "launch",
+            "mainClass": "com.salesianostriana.dam.colegio_lorentealmanalvaro.ColegioLorentealmanalvaroApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Application",
             "request": "launch",
             "mainClass": "com.salesianostriana.dam.rest.Application",
