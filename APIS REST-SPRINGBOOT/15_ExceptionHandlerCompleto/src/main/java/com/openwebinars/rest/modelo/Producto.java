@@ -19,18 +19,10 @@ public class Producto {
 	
 	private String nombre;
 	
-	private double precio;
+	private float precio;
 	
 	@ManyToOne
 	@JoinColumn(name="categoria_id")
 	private Categoria categoria;
-
-	public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 	
 }

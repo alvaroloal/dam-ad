@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.openwebinars.rest</groupId>
-	<artifactId>13_ManejoBasicoErroresCompleto</artifactId>
+	<artifactId>15_ExceptionHandlerCompleto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>13_ManejoBasicoErroresCompleto</name>
-	<description>Ejemplo de manejo básico de errores</description>
+	<name>15_ExceptionHandlerCompleto</name>
+	<description>Ejemplo de manejo de errores con ExceptionHandler</description>
 
 	<properties>
 		<java.version>1.8</java.version>

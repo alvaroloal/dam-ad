@@ -10,16 +10,4 @@ public class CreateProductoDTO {
 	private float precio;
 	private long categoriaId;
 
-	public String getNombre() {
-        return nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public Long getCategoriaId() {
-        return categoriaId;
-    }
-
 }
