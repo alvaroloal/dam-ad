@@ -1,3 +1,5 @@
+CREATE SEQUENCE IF NOT EXISTS hibernate_sequence START WITH 1 INCREMENT BY 1;
+
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Juice - Orange, Concentrate', 91);
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Beef - Ground, Extra Lean, Fresh', 87);
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Cheese - Parmesan Grated', 39);
@@ -28,3 +30,5 @@ insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'),
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Jameson Irish Whiskey', 19);
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Muffin Chocolate Individual Wrap', 77);
 insert into producto (id, nombre, precio) values (NEXTVAL('hibernate_sequence'), 'Mussels - Frozen', 95);
+
+
