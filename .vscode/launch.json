@@ -61,6 +61,16 @@
             "projectName": "lorentealmanalvaromonumentos",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PetClinicApplication<spring-petclinic>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.springframework.samples.petclinic.PetClinicApplication",
+            "projectName": "spring-petclinic",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
