@@ -1,0 +1,318 @@
+<link href="../../../assets/data/app.css" rel="stylesheet">
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <div class="main">
+        <app-navbar-horizontal entity="Publication"></app-navbar-horizontal>
+        <main class="content" style="margin-top: -5px;">
+            <div class="container-fluid p-0">
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading d-flex justify-content-between align-items-center p-2">
+                                    <h4 class="panel-title d-flex justify-content-between align-items-center">
+                                        All ({{countPublications}})
+                                        <button (click)="openForm(publicationModal)" type="button"
+                                            class="btn btnhover rounded-pill px-4 ms-3"
+                                            style="background-color: #495057; color: white;">
+                                            ADD NEW
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                                                fill="currentColor" class="bi bi-plus ms-2" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                                            </svg>
+                                        </button>
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover"
+                                            id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th>Artista</th>
+                                                    <th>Título</th>
+                                                    <th>Descripción</th>
+                                                    <th>Valoración media</th>
+                                                    <th>Categoría</th>
+                                                    <th>Cantidad valoraciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let p of listPublications">
+                                                    <th scope="row">{{p.artista}}</th>
+                                                    <td>{{p.titulo}}</td>
+                                                    <td>{{p.descripcion}}</td>
+                                                    <td>{{p.valoracionMedia}}</td>
+                                                    <td>{{p.categoria}}</td>
+                                                    <td>{{p.cantidadValoraciones}}</td>
+                                                    <td class="text-end">
+                                                        <div class="d-inline-flex">
+                                                            <button type="button" (click)="openEditModal(publicationEditModal,p)"
+                                                                class="btn btn-primary buttonPers2 me-2">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" fill="currentColor" class="bi bi-pen"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+                                                                </svg>
+                                                            </button>
+                                                            <button type="button" (click)="openPopDelete(deleteModal,p)" class="btn btn-danger">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                    height="20" fill="currentColor" class="bi bi-trash"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                                    <path
+                                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <div class="d-flex" style="padding-top: 15px;">
+                              <ngb-pagination class="custom-pagination" [maxSize]="5" [boundaryLinks]="true"
+                              [collectionSize]="countPublications" [(page)]="currentPage" [pageSize]="20"
+                              (pageChange)="loadNewPage()" aria-label="Default pagination">
+                          </ngb-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<ng-template #publicationModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Create a new publication</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form #newPublication="ngForm" (ngSubmit)="newPublication.form.valid && onSubmit()">
+        <div class="mb-3">
+          <label for="titulo">Title</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.titulo" #titulo="ngModel" name="titulo" class="form-control"
+              placeholder="Enter name of the publication" required minlength="3" maxlength="31" />
+          </div>
+          <div class="alert-danger" *ngIf="titulo.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="titulo.errors['maxlength']">Title must be max 31 characters</p>
+            <p class="text-danger " *ngIf="titulo.errors['minlength']">Title must be at least 3 characters</p>
+            <p class="text-danger " *ngIf="titulo.errors['required']">Title is required</p>
+          </div>
+  
+          <label for="descripcion">Description</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.descripcion" #descripcion="ngModel" name="descripcion"
+              class="form-control" placeholder="Enter description of the publication" required/>
+          </div>
+          <div class="alert-danger" *ngIf="descripcion.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="descripcion.errors['required']">Description is required</p>
+          </div>
+  
+          <label for="tamanyoDimensiones">Size of dimensions</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.tamanyoDimensiones" #tamanyoDimensiones="ngModel" name="tamanyoDimensiones"
+              class="form-control" placeholder="Enter the size of dimensions of the publication" required/>
+          </div>
+          <div class="alert-danger" *ngIf="tamanyoDimensiones.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="tamanyoDimensiones.errors['required']">Size of dimensions are required</p>
+          </div>
+  
+          <label for="direccionObra">Address of piece</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.direccionObra" #direccionObra="ngModel" name="direccionObra"
+              class="form-control" placeholder="Enter the address of the piece" required/>
+          </div>
+          <div class="alert-danger" *ngIf="direccionObra.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="direccionObra.errors['required']">Address of the piece is required</p>
+          </div>
+  
+          <label for="nombreMuseo">Name of the museum</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.nombreMuseo" #nombreMuseo="ngModel" name="nombreMuseo"
+              class="form-control" placeholder="Enter name of the museum where this publication is located" required/>
+          </div>
+          <div class="alert-danger" *ngIf="nombreMuseo.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="nombreMuseo.errors['required']">Name of museum is required</p>
+          </div>
+  
+          <label for="lat">Latitude</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.lat" #lat="ngModel" name="lat"
+            class="form-control" placeholder="Enter the latitude" required pattern="-?\d+(\.\d+)?" />
+          </div>
+          <div class="alert-danger" *ngIf="lat.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="lat.errors['required']">Latitude is required</p>
+            <p class="text-danger " *ngIf="lat.errors['pattern']">Latitude must be in a valid format</p>
+          </div>
+  
+          <label for="lon">Longitude</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.lon" #lon="ngModel" name="lon"
+            class="form-control" placeholder="Enter the longitude" required pattern="-?\d+(\.\d+)?" />
+          </div>
+          <div class="alert-danger" *ngIf="lon.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="lon.errors['required']">Longitude is required</p>
+            <p class="text-danger " *ngIf="lon.errors['pattern']">Longitude must be in a valid format</p>
+          </div>
+  
+          <label for="image">Image of the publication</label>
+          <div class="input-group">
+            <input [(ngModel)]="formPublication.image" #image="ngModel" name="image"
+              class="form-control" placeholder="Enter the URL of the image"/>
+          </div>
+  
+          <label for="categoria">Category</label>
+          <div class="input-group">
+            <select #categoria="ngModel" class="form-select" [(ngModel)]="formPublication.numeroCategoria"
+              name="categoria" placeholder="Select the category of your publication" required>
+              <option *ngFor="let category of categories" [value]="category.numero">{{category.nombre}}
+              </option>
+            </select>
+          </div>
+  
+          <div class="alert-danger" *ngIf="categoria.errors && newPublication.submitted">
+            <p class="text-danger " *ngIf="categoria.errors['required']">Category is required</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btnSubmit btn-outline-dark">Create</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #publicationEditModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit publication</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form #editPublication="ngForm" (ngSubmit)="editPublication.form.valid && edit()">
+        <div class="mb-3">
+          <label for="titulo">Title</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.titulo" #titulo="ngModel" name="titulo" class="form-control"
+              placeholder="Enter name of the publication" required minlength="3" maxlength="31" />
+          </div>
+          <div class="alert-danger" *ngIf="titulo.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="titulo.errors['maxlength']">Title must be max 31 characters</p>
+            <p class="text-danger " *ngIf="titulo.errors['minlength']">Title must be at least 3 characters</p>
+            <p class="text-danger " *ngIf="titulo.errors['required']">Title is required</p>
+          </div>
+  
+          <label for="descripcion">Description</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.descripcion" #descripcion="ngModel" name="descripcion"
+              class="form-control" placeholder="Enter description of the publication" required/>
+          </div>
+          <div class="alert-danger" *ngIf="descripcion.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="descripcion.errors['required']">Description is required</p>
+          </div>
+  
+          <label for="tamanyoDimensiones">Size of dimensions</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.tamanyoDimensiones" #tamanyoDimensiones="ngModel" name="tamanyoDimensiones"
+              class="form-control" placeholder="Enter the size of dimensions of the publication" required/>
+          </div>
+          <div class="alert-danger" *ngIf="tamanyoDimensiones.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="tamanyoDimensiones.errors['required']">Size of dimensions are required</p>
+          </div>
+  
+          <label for="direccionObra">Address of piece</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.direccionObra" #direccionObra="ngModel" name="direccionObra"
+              class="form-control" placeholder="Enter the address of the piece" required/>
+          </div>
+          <div class="alert-danger" *ngIf="direccionObra.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="direccionObra.errors['required']">Address of the piece is required</p>
+          </div>
+  
+          <label for="nombreMuseo">Name of the museum</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.nombreMuseo" #nombreMuseo="ngModel" name="nombreMuseo"
+              class="form-control" placeholder="Enter name of the museum where this publication is located" required/>
+          </div>
+          <div class="alert-danger" *ngIf="nombreMuseo.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="nombreMuseo.errors['required']">Name of museum is required</p>
+          </div>
+  
+          <label for="lat">Latitude</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.lat" #lat="ngModel" name="lat"
+            class="form-control" placeholder="Enter the latitude" required pattern="-?\d+(\.\d+)?" />
+          </div>
+          <div class="alert-danger" *ngIf="lat.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="lat.errors['required']">Latitude is required</p>
+            <p class="text-danger " *ngIf="lat.errors['pattern']">Latitude must be in a valid format</p>
+          </div>
+  
+          <label for="lon">Longitude</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.lon" #lon="ngModel" name="lon"
+            class="form-control" placeholder="Enter the longitude" required pattern="-?\d+(\.\d+)?" />
+          </div>
+          <div class="alert-danger" *ngIf="lon.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="lon.errors['required']">Longitude is required</p>
+            <p class="text-danger " *ngIf="lon.errors['pattern']">Longitude must be in a valid format</p>
+          </div>
+  
+          <label for="image">Image of the publication</label>
+          <div class="input-group">
+            <input [(ngModel)]="formEditPublication.image" #image="ngModel" name="image"
+              class="form-control" placeholder="Enter the URL of the image"/>
+          </div>
+  
+          <label for="categoria">Category</label>
+          <div class="input-group">
+            <select #categoria="ngModel" class="form-select" [(ngModel)]="formEditPublication.numeroCategoria"
+              name="categoria" placeholder="Select the category of your publication" required>
+              <option *ngFor="let category of categories" [value]="category.numero">{{category.nombre}}
+              </option>
+            </select>
+          </div>
+  
+          <div class="alert-danger" *ngIf="categoria.errors && editPublication.submitted">
+            <p class="text-danger " *ngIf="categoria.errors['required']">Category is required</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btnSubmit btn-outline-dark">Edit</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #deleteModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" style="color: rgb(255, 51, 51);">Delete publication</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <h5>Are you sure you want to delete <span style="color: rgb(255, 51, 51);"
+                [textContent]="selectedPublication.titulo"></span>
+            publication?</h5>
+            <div class="container" style="margin-left: 30%; margin-top: 30px;">
+              <a class="btn btn-success" (click)="remove()" style="margin-right: 20px;">
+                  <i class="bi bi-check-lg" style="color: white; font-size: 17px;"></i>
+                  <span>Yes</span>
+              </a>
+              <a class="btn btn-danger" (click)="modal.dismiss()" >
+                  <i class="bi bi-x-lg" style="color: white; font-size: 17px;"></i>
+                  <span>Cancel</span>
+              </a>
+          </div>
+    </div>
+</ng-template>
