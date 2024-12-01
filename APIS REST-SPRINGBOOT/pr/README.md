@@ -1,7 +1,7 @@
 
 # Virtual Art Gallery Application
 
-![Imagen de valoracion](https://www.hispangallery.com/server/Portal_0002996/img/products/cuadro-de-paisaje-de-flores-de-casals-torres-campo-de-lavandas-60x60-cm_9407494.JPG)
+
 
 ## Roles
 - Admin -> 1 admin: (username: admin, password: admin1)
