@@ -19,7 +19,7 @@ public class MainController {
     }
     
 
-    record Producto(Long id, String nombre){}
+    record Producto(long id, String nombre){}
     
     
 }
