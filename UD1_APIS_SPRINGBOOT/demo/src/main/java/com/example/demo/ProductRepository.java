@@ -2,10 +2,8 @@ package com.example.demo;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 public class ProductRepository {
@@ -14,7 +12,7 @@ public class ProductRepository {
 
     @PostConstruct
     public void init() {
-        add(Product.builder().id(1L).name("Laptop").price(1200.0).build());
+        add(Product.builder().id(1L).name("Laptop").price(22.0).build());
         add(Product.builder().id(2L).name("Smartphone").price(800.0).build());
         add(Product.builder().id(3L).name("Headphones").price(150.0).build());
         add(Product.builder().id(4L).name("Monitor").price(300.0).build());
@@ -35,6 +33,7 @@ public class ProductRepository {
     }
 
     public Optional<Product> edit(Long id, Product newValue) {
+        /* funcion que acepta la clave y el valor y como esta presente se modifica el valor asociado a la clave */
         return Optional.ofNullable(products.computeIfPresent(id, (k, v) -> {
             v.setName(newValue.getName());
             v.setPrice(newValue.getPrice());
@@ -44,6 +43,29 @@ public class ProductRepository {
 
     public void delete(Long id) {
         products.remove(id);
+    }
+
+    public List<Product> query (double maxPrice, String sortDirection) {
+
+        List<Product> data = new ArrayList<>(products.values());
+        List<Product> result;
+
+        if(maxPrice < 0) {
+            result = data;
+        }
+        else {
+            result = data.stream()
+                    .filter(product -> product.getPrice() <= maxPrice)
+                    .collect(Collectors.toCollection(ArrayList::new));
+        }
+
+        if(sortDirection.equalsIgnoreCase("asc"))
+            result.sort(Comparator.comparing(Product::getName));
+        else if(sortDirection.equalsIgnoreCase("desc"))
+            result.sort(Comparator.comparing(Product::getName).reversed());
+
+
+        return Collections.unmodifiableList(result);
     }
 
 
