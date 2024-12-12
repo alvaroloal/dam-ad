@@ -22,7 +22,7 @@ public class MonumentoService {
         return this.monumentoRepository.findAll();
     }
 
-    // obtener x id
+    // obtener por id
     public Optional<Monumento> getMonumentoById(Long id) {
         return monumentoRepository.findById(id);
     }
