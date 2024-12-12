@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "e8629489-0092-440e-9a8d-8f36ecb272b4",
+		"name": "Monumentos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38690077"
+	},
+	"item": [
+		{
+			"name": "obtenerTodos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/monumentos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerUno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/monumentos/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monumentos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrarUno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/monumentos/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monumentos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearUno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codPais\": \"RU\",\r\n    \"nombrePais\": \"Rusia\",\r\n    \"nombreCiudad\": \"Moscuº\",\r\n    \"latitud\": 20.2,\r\n    \"longitud\": 22.4,\r\n    \"nombreMonumento\": \"Kremlin\",\r\n    \"descripcion\": \"Edificios civiles, palacios, las murallas de la antigua fortaleza y construcciones religiosas como la magnÃ­fica Catedral de San Basilio\",\r\n    \"fotoUrl\": \"https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/monumentos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monumentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarUno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"codPais\": \"VE\",\r\n        \"nombrePais\": \"Venezuela\",\r\n        \"nombreCiudad\": \"Caracasº\",\r\n        \"latitud\": 20.2,\r\n        \"longitud\": 56.4,\r\n        \"nombreMonumento\": \"Manto de María Divina Pastora\",\r\n        \"descripcion\": \"Estructura monumental dedicada a la Virgen María bajo la advocación de la Divina Pastora\",\r\n        \"fotoUrl\": \"https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/monumentos/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monumentos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
