@@ -1,13 +1,13 @@
-package com.example.ejemploclase;
+package com.salesianostriana.dam.ejercicio_dto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EjemploclaseApplication {
+public class EjercicioDtoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EjemploclaseApplication.class, args);
+		SpringApplication.run(EjercicioDtoApplication.class, args);
 	}
 
 }
