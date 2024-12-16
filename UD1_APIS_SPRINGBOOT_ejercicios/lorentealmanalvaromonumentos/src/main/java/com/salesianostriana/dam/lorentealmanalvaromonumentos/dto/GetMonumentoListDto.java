@@ -12,9 +12,9 @@ public record GetMonumentoListDto(
 ) {
 
     public static GetMonumentoListDto of (List<Monumento> items) {
-        return new GetMonumentoListDto()(
+        return new GetMonumentoListDto(
                 (long) items.size(),
-                items;
+                items
         );
     }
 

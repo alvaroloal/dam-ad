@@ -1,4 +1,5 @@
 package com.salesianostriana.dam.lorentealmanalvaromonumentos.controller;
+import com.salesianostriana.dam.lorentealmanalvaromonumentos.dto.GetMonumentoListDto;
 import com.salesianostriana.dam.lorentealmanalvaromonumentos.service.MonumentoService;
 import com.salesianostriana.dam.lorentealmanalvaromonumentos.model.Monumento;
 
@@ -29,18 +30,17 @@ public class MonumentoController {
     private MonumentoService monumentoService;
 
     // obtener todos los monumentos
-
-    @Operation(summary = "Obtiene todos los productos")
+    @Operation(summary = "Obtiene todos los monumentos")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     description = "Se han encontrado productos",
                     content = { @Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = GetProductListDto.class)),
+                            array = @ArraySchema(schema = @Schema(implementation = GetMonumentoListDto.class)),
                             examples = {@ExampleObject(
                                     value = """
                                             [
-                                                {"id": 1, "name": "Laptop", "price": 1234.56},
-                                                {"id": 2, "name": "Smartphone", "price": 999.99},
+                                                {"id": 1, "codPais": "FR", "nombrePais": "Francia", "nombreCiudad": "Paris", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre Eiffel", "descripcion":"De las torres mas famosas del mundo", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                                {"id": 2, "codPais": "ES", "nombrePais": "España", "nombreCiudad": "Sevilla", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre del Oro", "descripcion":"La usaban para transportar el oro que venía en barcos", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
                                             ]
                                             """
                             )}
@@ -54,7 +54,27 @@ public class MonumentoController {
         return monumentoService.getAllMonumentos();
     }
 
+
     // obtener por id
+    @Operation(summary = "Obtiene todos los monumentos por su id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Se han encontrado productos con el id indicado",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = GetMonumentoListDto.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                            [
+                                                {"id": 1, "codPais": "FR", "nombrePais": "Francia", "nombreCiudad": "Paris", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre Eiffel", "descripcion":"De las torres mas famosas del mundo", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                                {"id": 2, "codPais": "ES", "nombrePais": "España", "nombreCiudad": "Sevilla", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre del Oro", "descripcion":"La usaban para transportar el oro que venía en barcos", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                            ]
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha encontrado ningún monumento con ese id",
+                    content = @Content),
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Monumento> getMonumentoById(@PathVariable Long id) {
         Optional<Monumento> monumento = monumentoService.getMonumentoById(id);
@@ -65,7 +85,28 @@ public class MonumentoController {
         }
     }
 
+
+
     // crear nuevo monumento
+            @Operation(summary = "Crear un monumento")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Se ha creado correctamente",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = GetMonumentoListDto.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                            [
+                                                {"id": 1, "codPais": "FR", "nombrePais": "Francia", "nombreCiudad": "Paris", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre Eiffel", "descripcion":"De las torres mas famosas del mundo", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                                {"id": 2, "codPais": "ES", "nombrePais": "España", "nombreCiudad": "Sevilla", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre del Oro", "descripcion":"La usaban para transportar el oro que venía en barcos", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                            ]
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha creado ningún monumento",
+                    content = @Content),
+    })
     @PostMapping
     public ResponseEntity<Monumento> createMonumento(@RequestBody Monumento monumento) {
         Monumento nuevoMonumento = monumentoService.createMonumento(monumento);
@@ -73,7 +114,26 @@ public class MonumentoController {
     }
 
 
-    // actualizar monumento 
+    // actualizar monumento
+    @Operation(summary = "Actualizar monumento")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Se han actualizado el monumento",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = GetMonumentoListDto.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                            [
+                                                {"id": 1, "codPais": "FR", "nombrePais": "Francia", "nombreCiudad": "Paris", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre Eiffel", "descripcion":"De las torres mas famosas del mundo", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                                {"id": 2, "codPais": "ES", "nombrePais": "España", "nombreCiudad": "Sevilla", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre del Oro", "descripcion":"La usaban para transportar el oro que venía en barcos", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                            ]
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha actualizado el monumento",
+                    content = @Content),
+    })
     @PutMapping("/{id}")
     public ResponseEntity<Monumento> updateMonumento(@PathVariable Long id, @RequestBody Monumento monumento) {
         if (monumentoService.getMonumentoById(id).isPresent()) {
@@ -86,6 +146,25 @@ public class MonumentoController {
 
     
     // eliminar monumento
+    @Operation(summary = "Eliminar un monumento")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Se ha eliminado correctamente",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = GetMonumentoListDto.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                            [
+                                                {"id": 1, "codPais": "FR", "nombrePais": "Francia", "nombreCiudad": "Paris", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre Eiffel", "descripcion":"De las torres mas famosas del mundo", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                                {"id": 2, "codPais": "ES", "nombrePais": "España", "nombreCiudad": "Sevilla", "latitud": 33.33323, "longitud": 21.01212, "nombreMonumento": "Torre del Oro", "descripcion":"La usaban para transportar el oro que venía en barcos", "fotoUrl": "https://www.empacher.com/fileadmin/EN/products/racing-boats/racing-four/Steuer_unter_Deck__steering_device_integrated_inside_canvas.JPG"},
+                                            ]
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha eliminado el monumento",
+                    content = @Content),
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMonumento(@PathVariable Long id) {
         if (monumentoService.getMonumentoById(id).isPresent()) {

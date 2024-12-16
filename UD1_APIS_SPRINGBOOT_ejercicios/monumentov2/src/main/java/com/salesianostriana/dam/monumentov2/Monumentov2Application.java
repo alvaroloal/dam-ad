@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.lorentealmanalvaromonumentos;
+package com.salesianostriana.dam.monumentov2;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -9,20 +9,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @OpenAPIDefinition(info =
-	@Info(description = "API que gestiona los monumentos más populares de el mundo",
+@Info(description = "Una API de ejemplo para generar documentación con Swagger",
 		version = "1.0",
 		contact = @Contact(
 				email = "lorente.alalv24@triana.salesianos.edu",
-				name = "Álvaro Lorente Almán"),
+				name = "Alvaro Lorente"),
 		license = @License(
-				name = "Ejercicio de ejemplo"),
+				name = "Kalise para todos"),
 		title = "API sobre monumentos")
 )
 @SpringBootApplication
-public class LorenteAlmanAlvaroMonumentosApplication {
+public class Monumentov2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LorenteAlmanAlvaroMonumentosApplication.class, args);
+		SpringApplication.run(Monumentov2Application.class, args);
 	}
 
 }
