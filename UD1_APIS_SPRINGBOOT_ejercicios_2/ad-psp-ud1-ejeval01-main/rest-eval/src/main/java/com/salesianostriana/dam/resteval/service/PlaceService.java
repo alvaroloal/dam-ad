@@ -42,4 +42,13 @@ public class PlaceService {
 
         repository.delete(id);
     }
+
+    public Place addTagToPlace(Long idPlace, String tag) {
+
+        Place place = repository.get(idPlace).orElseThrow(() -> new PlaceNotFoundException("No se ha encontrado ningún lugar con el ID: %d".formatted(idPlace)));
+
+        place.addTag(tag);
+
+        return repository.edit(idPlace, place).get();
+    }
 }

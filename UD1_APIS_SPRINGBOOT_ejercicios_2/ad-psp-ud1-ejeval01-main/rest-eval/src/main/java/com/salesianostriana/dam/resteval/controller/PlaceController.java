@@ -41,12 +41,9 @@ public class PlaceController {
         return service.edit(id, place.to());
     }
     @PutMapping("/{id}/tag/add/{nuevo_tag}")
-    public Place addTag(@PathVariable Long id, @PathVariable("nuevo_tag") String nuevoTag) {
+    public Place addTag(@PathVariable("id") Long id, @PathVariable("nuevo_tag") String nuevoTag) {
 
-        Place place = service.findById(id);
-        place.addTag(nuevoTag);
-
-        return service.edit(id, place);
+        return service.addTagToPlace(id, nuevoTag);
     }
 
     @PutMapping("/{id}/tag/del/{tag}")
