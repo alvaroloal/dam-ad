@@ -67,7 +67,7 @@ public class MonumentoController {
                     description = "No se ha encontrado ningún monumento",
                     content = @Content),
     })
-    @GetMapping("all")
+    @GetMapping()
     public ResponseEntity<List<Monumento>> getAllWithParams(
             @RequestParam(required = false, value = "maxLatitude", defaultValue = "") Double latitude,
             @RequestParam(required = false, value = "sort", defaultValue = "no") String sort) {

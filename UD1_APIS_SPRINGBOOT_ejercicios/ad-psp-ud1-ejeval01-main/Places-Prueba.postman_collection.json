@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "2919d624-cb96-4694-b1e8-e85a17b25dda",
+		"name": "Places-Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38617627"
+	},
+	"item": [
+		{
+			"name": "Buscar todos los lugares",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/place/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"La Estrellita\",\r\n    \"address\": \"Calle Ya veremos\",\r\n    \"coords\": \"4.121231231251, 4.212312\",\r\n    \"desc\": \"Sí\",\r\n    \"image\": \"Una patata\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"La Estrellita\",\r\n    \"address\": \"Calle Ya veremos\",\r\n    \"coords\": \"4.121231231251, 4.212312\",\r\n    \"desc\": \"Sí\",\r\n    \"image\": \"Una patata\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/place/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar tag",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/place/1/tag/add/wala",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place",
+						"1",
+						"tag",
+						"add",
+						"wala"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/place/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar tag",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/place/1/tag/del/'wala'",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place",
+						"1",
+						"tag",
+						"del",
+						"'wala'"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
