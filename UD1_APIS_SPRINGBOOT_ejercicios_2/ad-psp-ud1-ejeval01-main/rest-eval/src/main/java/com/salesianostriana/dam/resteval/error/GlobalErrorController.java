@@ -15,6 +15,7 @@ public class GlobalErrorController extends ResponseEntityExceptionHandler {
         ProblemDetail detail = ProblemDetail
                 .forStatusAndDetail(HttpStatus.NOT_FOUND,
                         exception.getMessage());
+
         detail.setTitle("Lugar no encontrado");
 
         return detail;
