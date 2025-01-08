@@ -1,0 +1,11 @@
+com\salesianostriana\dam\resteval\controller\PlaceController.class
+com\salesianostriana\dam\resteval\dto\GetPlaceDto.class
+com\salesianostriana\dam\resteval\error\GlobalErrorController.class
+com\salesianostriana\dam\resteval\dto\GetPlaceListDto.class
+com\salesianostriana\dam\resteval\service\PlaceService.class
+com\salesianostriana\dam\resteval\dto\CreatePlaceDto.class
+com\salesianostriana\dam\resteval\PlaceRepository.class
+com\salesianostriana\dam\resteval\Place.class
+com\salesianostriana\dam\resteval\RestEvalApplication.class
+com\salesianostriana\dam\resteval\error\PlaceNotFoundException.class
+com\salesianostriana\dam\resteval\Place$PlaceBuilder.class
