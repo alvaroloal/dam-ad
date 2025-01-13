@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -15,17 +13,37 @@ import java.util.Objects;
 @Builder
 @Entity
 @ToString
-public class Categoria {
+@Table(name = "productos")
+public class Producto {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String nombreCategoria;
+    @Column(length = 512)
+    private String nombre;
 
-    @Builder.Default //lista no null
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
-    private List<Producto> listaProductos = new ArrayList<>();
+    @Column(columnDefinition = "TEXT")
+    private String descripcion;
+
+    @Column(name = "precio")
+    private double precio;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id",
+            foreignKey = @ForeignKey(name = "fk_producto_categoria"))
+    private Categoria categoria;
+    public void addCategoria(Categoria c){
+        this.setCategoria(c);
+        if(!c.getListaProductos().contains(this)) {
+            c.getListaProductos().add(this);
+        }
+    }
+    public void eliminarCategoria(Categoria c){
+        if(c != null){
+        c.getListaProductos().remove(this);
+        }
+    }
 
     @Override
     public final boolean equals(Object o) {
@@ -34,8 +52,8 @@ public class Categoria {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Categoria categoria = (Categoria) o;
-        return getId() != null && Objects.equals(getId(), categoria.getId());
+        Producto producto = (Producto) o;
+        return getId() != null && Objects.equals(getId(), producto.getId());
     }
 
     @Override

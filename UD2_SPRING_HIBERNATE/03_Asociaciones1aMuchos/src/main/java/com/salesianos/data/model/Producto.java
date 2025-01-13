@@ -34,6 +34,19 @@ public class Producto {
             foreignKey = @ForeignKey(name = "fk_producto_categoria"))
     private Categoria categoria;
 
+    public void addCategoria(Categoria c){
+        this.setCategoria(c);
+        if(!c.getListaProductos().contains(this)) {
+            c.getListaProductos().add(this);
+        }
+    }
+
+    public void eliminarCategoria(Categoria c){
+        if(c != null){
+        c.getListaProductos().remove(this);
+        }
+    }
+
 
     @Override
     public final boolean equals(Object o) {

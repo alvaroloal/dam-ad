@@ -1,4 +1,4 @@
-package com.salesianos.data.dto;
+package com.salesianos.data.dtos;
 
 import com.salesianos.data.model.Categoria;
 

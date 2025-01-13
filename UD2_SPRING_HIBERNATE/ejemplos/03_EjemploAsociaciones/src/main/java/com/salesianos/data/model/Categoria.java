@@ -16,16 +16,17 @@ import java.util.Objects;
 @Entity
 @ToString
 public class Categoria {
-
     @Id
     @GeneratedValue
     private Long id;
 
     private String nombreCategoria;
 
-    @Builder.Default //lista no null
-    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+    @Builder.Default //Para que la lista no sea null
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER) //Nombre del atributo con @ManyToOne
     private List<Producto> listaProductos = new ArrayList<>();
+
+
 
     @Override
     public final boolean equals(Object o) {

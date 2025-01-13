@@ -1,7 +1,7 @@
 package com.salesianos.data.service;
 
-import com.salesianos.data.dto.EditCategoriaCmd;
-import com.salesianos.data.dto.EditProductoCmd;
+import com.salesianos.data.dtos.EditCategoriaCmd;
+import com.salesianos.data.dtos.EditProductoCmd;
 import com.salesianos.data.model.Categoria;
 import com.salesianos.data.model.Producto;
 import com.salesianos.data.repos.CategoriaRepository;

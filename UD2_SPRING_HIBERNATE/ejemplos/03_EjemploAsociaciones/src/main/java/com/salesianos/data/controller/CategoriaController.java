@@ -1,8 +1,11 @@
 package com.salesianos.data.controller;
 
-import com.salesianos.data.dto.EditCategoriaCmd;
-import com.salesianos.data.dto.GetCategoriaDto;
+import com.salesianos.data.dtos.EditCategoriaCmd;
+import com.salesianos.data.dtos.EditProductoCmd;
+import com.salesianos.data.dtos.GetCategoriaDto;
+import com.salesianos.data.dtos.GetProductoDto;
 import com.salesianos.data.model.Categoria;
+import com.salesianos.data.model.Producto;
 import com.salesianos.data.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorias/")
+@RequestMapping("/category/")
 @RequiredArgsConstructor
 public class CategoriaController {
     private final CategoriaService categoriaService;
