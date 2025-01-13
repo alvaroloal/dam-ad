@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>com.salesianos</groupId>
 	<artifactId>data</artifactId>
-	<version>02_EjemploBasicoDataJpa</version>
-	<name>02_EjemploBasicoDataJpa</name>
+	<version>03_Asociaciones1aMuchos</version>
+	<name>03_Asociaciones1aMuchos</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

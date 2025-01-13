@@ -1,9 +1,11 @@
-package com.salesianos.data;
+package com.salesianos.data.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -13,22 +15,17 @@ import java.util.Objects;
 @Builder
 @Entity
 @ToString
-@Table(name = "productos")
-public class Producto {
+public class Categoria {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(length = 512)
-    private String nombreProducto;
+    private String nombre;
 
-    @Column(columnDefinition = "TEXT")
-    private String descripcion;
-
-    @Column(name = "precio")
-    private double precioVenta;
-
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+    @Builder.Default
+    private List<Producto> productos = new ArrayList<>();
 
     @Override
     public final boolean equals(Object o) {
@@ -37,8 +34,8 @@ public class Producto {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Producto producto = (Producto) o;
-        return getId() != null && Objects.equals(getId(), producto.getId());
+        Categoria categoria = (Categoria) o;
+        return getId() != null && Objects.equals(getId(), categoria.getId());
     }
 
     @Override
