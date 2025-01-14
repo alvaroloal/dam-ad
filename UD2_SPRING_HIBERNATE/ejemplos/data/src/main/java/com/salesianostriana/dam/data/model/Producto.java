@@ -1,18 +1,16 @@
-package com.salesianos.data.model;
+package com.salesianostriana.dam.data.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
-
 import java.util.Objects;
 
-@Getter
-@Setter
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Getter
+@Setter
 @ToString
 @Table(name = "productos")
 public class Producto {
@@ -22,32 +20,18 @@ public class Producto {
     private Long id;
 
     @Column(length = 512)
-    private String nombre;
+    private String nombreProducto;
 
     @Column(columnDefinition = "TEXT")
     private String descripcion;
 
     @Column(name = "precio")
-    private double precio;
+    private double precioVenta;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id",
             foreignKey = @ForeignKey(name = "fk_producto_categoria"))
-    //@JsonBackReference//lado propietario
     private Categoria categoria;
-
-    //METODOS
-    public void addCategoria(Categoria c){
-        this.setCategoria(c);
-        if(!c.getListaProductos().contains(this)) {
-            c.getListaProductos().add(this);
-        }
-    }
-    public void eliminarCategoria(Categoria c){
-        if(c != null){
-        c.getListaProductos().remove(this);
-        }
-    }
 
     @Override
     public final boolean equals(Object o) {
@@ -63,5 +47,17 @@ public class Producto {
     @Override
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
+
+    public void addToCategoria(Categoria categoria) {
+
+        categoria.getProductos().add(this);
+        this.setCategoria(categoria);
+    }
+
+    public void removeFromCategoria(Categoria categoria) {
+
+        categoria.getProductos().remove(this);
+        this.setCategoria(null);
     }
 }
