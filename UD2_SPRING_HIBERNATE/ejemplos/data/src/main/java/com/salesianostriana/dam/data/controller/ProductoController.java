@@ -53,15 +53,15 @@ public class ProductoController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/addCategoria/{idProducto}/{idCategoriaNueva}")
-    public GetProductoDto addCategoria(@PathVariable Long idProducto, @PathVariable Long idCategoriaNueva) {
+    @PutMapping("/addCategoria/{idProducto}/{idCategoria}")
+    public GetProductoDto addCategoria(@PathVariable Long idProducto, @PathVariable Long idCategoria) {
 
-        return GetProductoDto.of(productoService.addToCategoria(idProducto, idCategoriaNueva));
+        return GetProductoDto.of(productoService.addToCategoria(idProducto, idCategoria));
     }
 
-    @PutMapping("/deleteCategoria/{idProducto}/{idCategoriaABorrar}")
-    public GetProductoDto deleteCategoria(@PathVariable Long idProducto, @PathVariable Long idCategoriaABorrar) {
+    @PutMapping("/deleteCategoria/{idProducto}/{idCategoria}")
+    public GetProductoDto deleteCategoria(@PathVariable Long idProducto, @PathVariable Long idCategoria) {
 
-        return GetProductoDto.of(productoService.removeFromCategoria(idProducto, idCategoriaABorrar));
+        return GetProductoDto.of(productoService.removeFromCategoria(idProducto, idCategoria));
     }
 }

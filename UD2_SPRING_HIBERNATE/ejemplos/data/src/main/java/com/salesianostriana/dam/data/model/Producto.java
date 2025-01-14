@@ -48,16 +48,4 @@ public class Producto {
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
-
-    public void addToCategoria(Categoria categoria) {
-
-        categoria.getProductos().add(this);
-        this.setCategoria(categoria);
-    }
-
-    public void removeFromCategoria(Categoria categoria) {
-
-        categoria.getProductos().remove(this);
-        this.setCategoria(null);
-    }
 }

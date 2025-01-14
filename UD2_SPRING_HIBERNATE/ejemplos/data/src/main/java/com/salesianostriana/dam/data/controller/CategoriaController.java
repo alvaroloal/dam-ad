@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorias/")
+@RequestMapping("/categoria/")
 @RequiredArgsConstructor
 public class CategoriaController {
 
@@ -28,28 +28,28 @@ public class CategoriaController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public GetCategoriaDto findById(@PathVariable Long id) {
 
         return GetCategoriaDto.of(categoriaService.findById(id));
     }
 
 
-    @PostMapping("/{categoria}")
+    @PostMapping("{categoria}")
     public ResponseEntity<GetCategoriaDto> save(@PathVariable String categoria) {
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(GetCategoriaDto.of(categoriaService.save(Categoria.builder().nombre(categoria).build())));
+        return ResponseEntity.status(HttpStatus.CREATED).body(GetCategoriaDto.of(categoriaService.save(categoria)));
 
     }
 
-    @PutMapping("/{id}/{categoria}")
+    @PutMapping("{id}/{categoria}")
     public GetCategoriaDto edit(@PathVariable Long id, @PathVariable String categoria) {
 
 
         return GetCategoriaDto.of(categoriaService.edit(Categoria.builder().nombre(categoria).build(), id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
 
         categoriaService.delete(id);

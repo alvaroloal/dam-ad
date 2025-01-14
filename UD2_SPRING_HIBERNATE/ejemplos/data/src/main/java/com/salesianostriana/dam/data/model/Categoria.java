@@ -31,7 +31,23 @@ public class Categoria {
           orphanRemoval = true
   )
   @Builder.Default
+  @ToString.Exclude
   private List<Producto> productos = new ArrayList<>();
+
+
+  //Métodos helper
+
+  public void addProducto(Producto p) {
+
+    p.setCategoria(this);
+    this.getProductos().add(p);
+  }
+
+  public void removeProducto(Producto p) {
+
+    this.getProductos().remove(p);
+    p.setCategoria(null);
+  }
 
   @Override
   public final boolean equals(Object o) {

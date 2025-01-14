@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.data.service;
 
 import com.salesianostriana.dam.data.dto.EditProductoCmd;
-import com.salesianostriana.dam.data.model.Categoria;
 import com.salesianostriana.dam.data.model.Producto;
 import com.salesianostriana.dam.data.repo.CategoriaRepository;
 import com.salesianostriana.dam.data.repo.ProductoRepository;
@@ -39,11 +38,21 @@ public class ProductoService {
 
     public Producto save(EditProductoCmd nuevo) {
 
+        if(nuevo.categoriaId() != null) {
+            return productoRepository.save(
+                    Producto.builder()
+                            .nombreProducto(nuevo.nombre())
+                            .precioVenta(nuevo.precio())
+                            .categoria(categoriaRepository.findById(nuevo.categoriaId()).orElse(null))
+                            .descripcion(nuevo.descripcion())
+                            .build()
+            );
+        }
+
         return productoRepository.save(
                 Producto.builder()
                         .nombreProducto(nuevo.nombre())
                         .precioVenta(nuevo.precio())
-                        .categoria(categoriaRepository.findById(nuevo.categoriaId()).orElse(null))
                         .descripcion(nuevo.descripcion())
                         .build()
         );
@@ -67,33 +76,4 @@ public class ProductoService {
         productoRepository.deleteById(id);
     }
 
-    public Producto addToCategoria(Long idProducto, Long idCategoria) {
-
-        Producto producto = productoRepository.findById(idProducto)
-                .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado ningún producto con el ID: %d".formatted(idProducto)));
-
-        Categoria categoria = categoriaRepository.findById(idCategoria)
-                .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado ninguna categoría con el ID: %d".formatted(idCategoria)));
-
-        producto.addToCategoria(categoria);
-
-        categoriaRepository.save(categoria);
-
-        return productoRepository.save(producto);
-    }
-
-    public Producto removeFromCategoria(Long idProducto, Long idCategoria) {
-
-        Producto producto = productoRepository.findById(idProducto)
-                .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado ningún producto con el ID: %d".formatted(idProducto)));
-
-        Categoria categoria = categoriaRepository.findById(idCategoria)
-                .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado ninguna categoría con el ID: %d".formatted(idCategoria)));
-
-        producto.removeFromCategoria(categoria);
-
-        categoriaRepository.save(categoria);
-
-        return productoRepository.save(producto);
-    }
 }

@@ -1,9 +1,7 @@
 package com.salesianostriana.dam.data.service;
 
 import com.salesianostriana.dam.data.model.Categoria;
-import com.salesianostriana.dam.data.model.Producto;
 import com.salesianostriana.dam.data.repo.CategoriaRepository;
-import com.salesianostriana.dam.data.repo.ProductoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,9 +30,9 @@ public class CategoriaService {
                 .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado una categoría con el ID: %d".formatted(id)));
     }
 
-    public Categoria save(Categoria categoria) {
+    public Categoria save(String categoria) {
 
-        return categoriaRepository.save(categoria);
+        return categoriaRepository.save(Categoria.builder().nombre(categoria).build());
     }
 
     public Categoria edit(Categoria categoria, Long id) {
