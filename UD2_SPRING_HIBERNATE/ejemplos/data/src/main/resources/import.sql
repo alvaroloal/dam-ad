@@ -7,3 +7,7 @@ INSERT INTO productos(id, nombre_producto, descripcion, precio, categoria_id) VA
 INSERT INTO productos(id, nombre_producto, descripcion, precio, categoria_id) VALUES (2, 'Ordenador', 'Illo un ordenador to wapo pa jugar al counter estraik ese tío', 800, 2);
 INSERT INTO productos(id, nombre_producto, descripcion, precio, categoria_id) VALUES (3, 'Mesa', 'Illo una mesa to wapa del carajo colega', 800, 3);
 ALTER SEQUENCE productos_seq RESTART WITH 53;
+
+INSERT INTO tag(id, nombre) VALUES(nextval('tag_seq'), 'Refrigerio');
+INSERT INTO tag(id, nombre) VALUES(nextval('tag_seq'), 'Cositas');
+INSERT INTO tag(id, nombre) VALUES(nextval('tag_seq'), 'Ke Weno')
