@@ -2,31 +2,53 @@ package com.salesianos.data.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.Accessors;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-@ToString
-public class Tag {
+public class Pedido {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String nombre;
-
-    @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
     @Builder.Default
-    @Setter(AccessLevel.NONE)
+    private LocalDateTime fechaCreacion = LocalDateTime.now();
+
+    private String cliente;
+
+    @OneToMany(
+            mappedBy = "pedido",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @Builder.Default
     @ToString.Exclude
-    private Set<Producto> productos = new HashSet<>();
+    @Setter(AccessLevel.NONE)
+    private List<LineaPedido> lineasPedido = new ArrayList<>();
+
+    // Helpers
+
+    public void addLineaPedido(LineaPedido lineaPedido) {
+        lineasPedido.add(lineaPedido);
+        lineaPedido.setPedido(this);
+    }
+
+    public void removeLineaPedido(LineaPedido lineaPedido) {
+        lineasPedido.remove(lineaPedido);
+        //lineaPedido.setPedido(null); // No es necesaria gracias a orphanRemoval
+    }
+
 
     @Override
     public final boolean equals(Object o) {
@@ -35,8 +57,8 @@ public class Tag {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Tag categoria = (Tag) o;
-        return getId() != null && Objects.equals(getId(), categoria.getId());
+        Pedido pedido = (Pedido) o;
+        return getId() != null && Objects.equals(getId(), pedido.getId());
     }
 
     @Override

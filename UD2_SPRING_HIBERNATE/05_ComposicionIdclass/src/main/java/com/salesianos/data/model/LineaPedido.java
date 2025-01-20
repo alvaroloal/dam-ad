@@ -2,31 +2,35 @@ package com.salesianos.data.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.Accessors;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.*;
+import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-@ToString
-public class Tag {
+@IdClass(LineaPedidoId.class)
+public class LineaPedido {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String nombre;
+    @ManyToOne
+    private Producto producto;
 
-    @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    @ToString.Exclude
-    private Set<Producto> productos = new HashSet<>();
+    private int cantidad;
+
+    private double precioVenta;
+
+    @Id
+    @ManyToOne
+    private Pedido pedido;
+
 
     @Override
     public final boolean equals(Object o) {
@@ -35,8 +39,8 @@ public class Tag {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Tag categoria = (Tag) o;
-        return getId() != null && Objects.equals(getId(), categoria.getId());
+        LineaPedido that = (LineaPedido) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
     }
 
     @Override
