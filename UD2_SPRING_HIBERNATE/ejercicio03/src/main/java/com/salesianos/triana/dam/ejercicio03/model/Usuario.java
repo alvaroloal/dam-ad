@@ -1,16 +1,20 @@
 package com.salesianos.triana.dam.ejercicio03.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
-@Entity
-@Builder
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Getter
 @Setter
-@NoArgsConstructor
+@ToString
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
 public class Usuario {
 
     @Id
@@ -18,13 +22,42 @@ public class Usuario {
     private Long id;
 
     private String nombre;
-    private int numeroTarjeta;
+
+    private Long numTarjeta;
+
     private int pin;
+
     private double saldo;
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @Builder.Default
+    @ToString.Exclude
+    private List<Uso>  usos = new ArrayList<>();
 
+    //helpers
+    public void addUso(Uso u){
+        u.setUsuario(this);
+        this.usos.add(u);
+    }
 
+    public void removeUso(Uso u){
+        this.usos.remove(u);
+        u.setUsuario(null);
+    }
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        Usuario usuario = (Usuario) o;
+        return getId() != null && Objects.equals(getId(), usuario.getId());
+    }
 
-
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }

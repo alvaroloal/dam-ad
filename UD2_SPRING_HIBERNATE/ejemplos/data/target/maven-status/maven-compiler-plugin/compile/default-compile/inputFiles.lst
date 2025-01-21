@@ -1,0 +1,17 @@
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\controller\CategoriaController.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\controller\ProductoController.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\DataApplication.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\dto\EditProductoCmd.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\dto\GetCategoriaDto.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\dto\GetCategoriaWithProducto.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\dto\GetProductoDto.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\dto\GetProductoFromCategoriaDto.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\error\GlobalErrorController.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\MainDeMentira.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\model\Categoria.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\model\Producto.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\model\Tag.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\repo\CategoriaRepository.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\repo\ProductoRepository.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\service\CategoriaService.java
+C:\Users\alvar\proyectos\dam-ad-psp\UD2_SPRING_HIBERNATE\ejemplos\data\src\main\java\com\salesianostriana\dam\data\service\ProductoService.java
