@@ -27,7 +27,10 @@ public class Bicicleta {
 
     private String estado;
 
-    @OneToMany(mappedBy = "bicicleta", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "bicicleta",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     @Builder.Default
     @ToString.Exclude
     private List<Uso> usos = new ArrayList<>();

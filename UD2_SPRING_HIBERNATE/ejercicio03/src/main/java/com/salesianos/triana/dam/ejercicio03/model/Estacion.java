@@ -1,64 +1,62 @@
 package com.salesianos.triana.dam.ejercicio03.model;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 @Getter
 @Setter
-@ToString
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Builder
+@ToString
 public class Estacion {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private Long numero;
-
+    private double numero;
     private String nombre;
-
     private String coordenadas;
-
     private int capacidad;
 
-    @OneToMany(mappedBy = "estacion", fetch = FetchType.EAGER)
-    @Builder.Default
+    @OneToMany(mappedBy = "estacion")
     @ToString.Exclude
-    private List<Uso> usos = new ArrayList<>();
+    private List<Bicicleta> bicicletas;
 
-    @OneToMany(mappedBy = "estacion", fetch = FetchType.EAGER)
-    @Builder.Default
+    @OneToMany(mappedBy = "estacionFinal")
     @ToString.Exclude
-    private List<Bicicleta> bicicletas = new ArrayList<>();
+    private List<Uso> usosFinalizados;
 
-    //helpers
-    public void addUso(Uso u){
-        u.setEstacion(this);
-        this.usos.add(u);
-    }
-
-    public void removeUso(Uso u){
-        this.usos.remove(u);
-        u.setEstacion(null);
-    }
-
-    //Helper
-    public void addBicicleta(Bicicleta b){
-        b.setEstacion(this);
+    // helpers bicicleta
+    public void addBicicleta(Bicicleta b) {
         this.bicicletas.add(b);
+        b.setEstacion(this);
     }
 
-    public void removeBicicleta(Bicicleta b){
+    public void removeBicicleta(Bicicleta b) {
         this.bicicletas.remove(b);
         b.setEstacion(null);
+    }
+
+    // helpers uso
+    public void addUso(Uso u) {
+        this.usosFinalizados.add(u);
+        u.setEstacionFinal(this);
+    }
+
+    public void removeUso(Uso u) {
+        this.usosFinalizados.remove(u);
+        u.setEstacionFinal(null);
     }
 
     @Override
@@ -76,4 +74,5 @@ public class Estacion {
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
+
 }

@@ -16,31 +16,26 @@ import java.util.Objects;
 @Builder
 @Entity
 public class Usuario {
-
     @Id
     @GeneratedValue
     private Long id;
 
     private String nombre;
+    private String numTarjeta;
+    private String pin;
+    private String saldo;
 
-    private Long numTarjeta;
-
-    private int pin;
-
-    private double saldo;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    @Builder.Default
+    @OneToMany(mappedBy = "usuario")
     @ToString.Exclude
-    private List<Uso>  usos = new ArrayList<>();
+    private List<Uso> usos;
 
-    //helpers
-    public void addUso(Uso u){
-        u.setUsuario(this);
+    // helpers uso
+    public void addUso(Uso u) {
         this.usos.add(u);
+        u.setUsuario(this);
     }
 
-    public void removeUso(Uso u){
+    public void removeUso(Uso u) {
         this.usos.remove(u);
         u.setUsuario(null);
     }
