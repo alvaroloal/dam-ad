@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface BicicletaRepository extends JpaRepository<Bicicleta, Long> {
-//seleccionar el nombre de la bicicleta que contenga la marca
-
+//buscar bicicleta por nombre de marca
+List<Bicicleta> findByMarca(String marca);
 
 
 }

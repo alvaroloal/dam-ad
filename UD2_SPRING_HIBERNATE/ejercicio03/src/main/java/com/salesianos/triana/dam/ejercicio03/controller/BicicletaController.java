@@ -2,6 +2,7 @@ package com.salesianos.triana.dam.ejercicio03.controller;
 
 import com.salesianos.triana.dam.ejercicio03.dto.EditBici;
 import com.salesianos.triana.dam.ejercicio03.dto.GetBiciDto;
+import com.salesianos.triana.dam.ejercicio03.dto.GetBiciMarca;
 import com.salesianos.triana.dam.ejercicio03.dto.GetEstacionDto;
 import com.salesianos.triana.dam.ejercicio03.model.Bicicleta;
 import com.salesianos.triana.dam.ejercicio03.model.Estacion;
@@ -164,6 +165,40 @@ public class BicicletaController {
     public ResponseEntity<?> delete(@PathVariable Long id) {
         bicicletaService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+
+    @Operation(summary = "Buscar una bicicleta por su marca")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Se ha encontrado la bicicleta",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = GetEstacionDto.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                            {
+                                                      "id": 1,
+                                                      "marca": "Trek",
+                                                      "modelo": "RS33",
+                                                      "estado": "Disponible",
+                                                      "estacion": {
+                                                          "id": 1,
+                                                          "nombre": "Estación Central"
+                                                      }
+                                                  }
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha encontrado la bicicleta con esa marca",
+                    content = @Content),
+    })
+    @GetMapping("/marca/{marca}")
+    public List<GetBiciMarca> findByMarca(@PathVariable String marca) {
+        return bicicletaService.findByMarca(marca)
+                .stream()
+                .map(GetBiciMarca::fromBicicleta)
+                .toList();
     }
 
 }

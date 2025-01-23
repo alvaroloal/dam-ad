@@ -173,6 +173,25 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "findByMarca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bicicleta/marca/Giant",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bicicleta",
+						"marca",
+						"Giant"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

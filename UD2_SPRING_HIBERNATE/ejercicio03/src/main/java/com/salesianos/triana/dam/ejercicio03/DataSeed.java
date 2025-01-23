@@ -118,10 +118,29 @@ public class DataSeed {
                 .estacion(estacion4)
                 .build();
 
+        Bicicleta bicicleta5 = Bicicleta.builder()
+                .marca("Specialized")
+                .modelo("MFFT")
+                .estado("Disponible")
+                .estacion(estacion4)
+                .build();
+
+        Bicicleta bicicleta6 = Bicicleta.builder()
+                .marca("Giant")
+                .modelo("Forest")
+                .estado("Disponible")
+                .estacion(estacion2)
+                .build();
+
         bicicletaRepository.save(bicicleta1);
         bicicletaRepository.save(bicicleta2);
         bicicletaRepository.save(bicicleta3);
         bicicletaRepository.save(bicicleta4);
+        bicicletaRepository.save(bicicleta5);
+        bicicletaRepository.save(bicicleta6);
+
+
+
 
         Uso uso1 = Uso.builder()
                 .fechaInicio(LocalDateTime.now().minusHours(1))
@@ -155,7 +174,7 @@ public class DataSeed {
                 .fechaFin(LocalDateTime.now().minusHours(3))
                 .coste(4.5)
                 .usuario(usuario4)
-                .bicicleta(bicicleta4)
+                .bicicleta(bicicleta5)
                 .estacionFinal(estacion3)
                 .build();
 
@@ -165,13 +184,17 @@ public class DataSeed {
         usoRepository.save(uso4);
 
         System.out.println();
-        System.out.println("Usuarios " + usuarioRepository.findAll());
+        System.out.println("Usuarios");
+        usuarioRepository.findAll().forEach(System.out::println);
         System.out.println();
-        System.out.println("Estaciones " + estacionRepository.findAll());
+        System.out.println("Estaciones");
+        estacionRepository.findAll().forEach(System.out::println);
         System.out.println();
-        System.out.println("Bicicletas " + bicicletaRepository.findAll());
+        System.out.println("Bicicletas");
+        bicicletaRepository.findAll().forEach(System.out::println);
         System.out.println();
-        System.out.println("Usos " + usoRepository.findAll());
+        System.out.println("Usos");
+        usoRepository.findAll().forEach(System.out::println);
         System.out.println();
     }
 }
