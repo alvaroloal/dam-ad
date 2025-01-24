@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.salesianos</groupId>
-	<artifactId>herencia</artifactId>
+	<artifactId>ejemploHerencia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>herencia</name>
+	<name>ejemploHerencia</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

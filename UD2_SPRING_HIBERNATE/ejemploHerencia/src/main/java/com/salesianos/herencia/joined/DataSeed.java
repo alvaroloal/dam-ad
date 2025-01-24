@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSeed {
 
-    private final SocioRepo socioRepo;
-    private final SocioAbonadoRepo socioAbonadoRepo;
+    private final SocioRepo socioRepository;
+    private final SocioAbonadoRepo socioAbonadoRepository;
 
     @PostConstruct
     public void init() {
 
         Socio socio1 = Socio.builder()
-                .nombre("Anotnio")
+                .nombre("José")
                 .apellidos("Lopez")
                 .email("antonio@gmail.com")
                 .telefono("123456789")
@@ -31,7 +31,7 @@ public class DataSeed {
 
         Socio socio2 = Socio.builder()
                 .nombre("Pilar")
-                .apellidos("Perez")
+                .apellidos("Alonso")
                 .email("pilar@gmail.com")
                 .telefono("987654321")
                 .dni("87654321B")
@@ -40,8 +40,8 @@ public class DataSeed {
                 .cuota(30.0)
                 .build();
 
-        socioRepo.save(socio1);
-        socioRepo.save(socio2);
+        socioRepository.save(socio1);
+        socioRepository.save(socio2);
 
         SocioAbonado socioAbonado1 = SocioAbonado.builder()
                 .nombre("Jose")
@@ -57,26 +57,33 @@ public class DataSeed {
                 .nombre("Pepe")
                 .apellidos("Alonso")
                 .email("pepe@gmail.com")
-                .email("pepe@gmail.com")
                 .telefono("934546771")
                 .dni("87654321B")
                 .asiento("B2")
                 .fechaAbono("2021-01-01")
                 .build();
 
-        socioAbonadoRepo.save(socioAbonado1);
-        socioAbonadoRepo.save(socioAbonado2);
+        SocioAbonado socioAbonado3 = SocioAbonado.builder()
+                .nombre("Gonzalo")
+                .apellidos("García")
+                .email("gonzalo@gmail.com")
+                .telefono("934546771")
+                .dni("87654321B")
+                .asiento("B2")
+                .fechaAbono("2021-01-01")
+                .build();
 
-        socioAbonadoRepo.save(socioAbonado1);
-        socioAbonadoRepo.save(socioAbonado2);
+        socioAbonadoRepository.save(socioAbonado1);
+        socioAbonadoRepository.save(socioAbonado2);
+        socioAbonadoRepository.save(socioAbonado3);
 
 
+        System.out.println();
+        System.out.println("Numero de socios: " + socioRepository.count());
 
-
-        System.out.println("Socios insertados: " + socioRepo.count());
-
-        System.out.println(socioRepo.findAll());
-        System.out.println(socioAbonadoRepo.findAll());
+        System.out.println(socioRepository.findAll());
+        System.out.println(socioAbonadoRepository.findAll());
+        System.out.println();
 
     }
 
