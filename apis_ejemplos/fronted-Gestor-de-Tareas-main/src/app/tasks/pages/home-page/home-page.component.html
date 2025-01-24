@@ -1,0 +1,12 @@
+<div class="container pt-4 text-center">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-bold mb-0">Tareas</h4>
+    <i (click)="addTask()" class="bi bi-file-earmark-plus-fill fs-5" id="add-btn"></i>
+  </div>
+  <hr class="mt-0 mb-4">
+  <task-list-task  *ngIf="isGetTarea, else formTask" [listTask]="listTask"></task-list-task>
+
+  <ng-template #formTask>
+    <task-form-task (emitter)="isGetTarea = $event"></task-form-task>
+  </ng-template>
+</div>
